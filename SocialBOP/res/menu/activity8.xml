@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.socialbop.Activity8" >
+    <item 
+        android:id="@+id/action_guardar"
+        android:icon="@drawable/ic_publicar"
+        android:title="Guardar"
+        android:showAsAction="always"
+        android:orderInCategory="1"></item>
+
+</menu>
