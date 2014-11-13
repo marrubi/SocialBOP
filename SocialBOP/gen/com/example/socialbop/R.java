@@ -27,18 +27,19 @@ public final class R {
     }
     public static final class drawable {
         public static final int ab_stacked_solid_bop=0x7f020000;
-        public static final int dog=0x7f020001;
-        public static final int ic_add=0x7f020002;
-        public static final int ic_add_user=0x7f020003;
-        public static final int ic_agregar=0x7f020004;
-        public static final int ic_agregar_usuario=0x7f020005;
-        public static final int ic_buscar=0x7f020006;
-        public static final int ic_enviar=0x7f020007;
-        public static final int ic_guardar=0x7f020008;
-        public static final int ic_iniciar_sesion=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int ic_publicar=0x7f02000b;
-        public static final int ic_siguiente=0x7f02000c;
+        public static final int bop=0x7f020001;
+        public static final int dog=0x7f020002;
+        public static final int ic_add=0x7f020003;
+        public static final int ic_add_user=0x7f020004;
+        public static final int ic_agregar=0x7f020005;
+        public static final int ic_agregar_usuario=0x7f020006;
+        public static final int ic_buscar=0x7f020007;
+        public static final int ic_enviar=0x7f020008;
+        public static final int ic_guardar=0x7f020009;
+        public static final int ic_iniciar_sesion=0x7f02000a;
+        public static final int ic_launcher=0x7f02000b;
+        public static final int ic_publicar=0x7f02000c;
+        public static final int ic_siguiente=0x7f02000d;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f090000;

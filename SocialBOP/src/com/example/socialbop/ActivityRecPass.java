@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+//Comentario
 public class ActivityRecPass extends Activity {
 
 	@Override
