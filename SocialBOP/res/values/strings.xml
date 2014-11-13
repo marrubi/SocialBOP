@@ -69,6 +69,6 @@
     <string name="title_activity_activity7">Buscar Perro</string>
     <string name="title_activity_activity5">Publicaciones</string>
     <string name="title_activity_activity3">Nuevo Usuario</string>
-    <string name="title_activity_activity6">Recuperación de Contraseña</string>
+    <string name="title_activity_activity6">Recuperar Contraseña</string>
 
 </resources>

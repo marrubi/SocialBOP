@@ -12,10 +12,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Bop" >
+        android:theme="@style/CustomActionBarTheme" >
         <activity
-            android:name=".Activity1"
-            android:label="@string/app_name" >
+            android:name=".ActivityLogin"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,23 +27,23 @@
             android:label="@string/title_activity_activity2" >
         </activity>
         <activity
-            android:name=".Activity4"
+            android:name=".ActivityBuscarPerro"
             android:label="@string/title_activity_activity4" >
         </activity>
         <activity
-            android:name=".Activity8"
+            android:name=".ActivityNvaPublicacion"
             android:label="@string/title_activity_activity8" >
         </activity>
         <activity
-            android:name=".Activity5"
+            android:name=".ActivityPublicaciones"
             android:label="@string/title_activity_activity5" >
         </activity>
         <activity
-            android:name=".Activity3"
+            android:name=".ActivityNvoUsuario"
             android:label="@string/title_activity_activity3" >
         </activity>
         <activity
-            android:name=".Activity6"
+            android:name=".ActivityRecPass"
             android:label="@string/title_activity_activity6" >
         </activity>
         <activity
@@ -51,7 +51,7 @@
             android:label="@string/title_activity_activity8" >
         </activity>
          <activity
-            android:name=".detallevista"
+            android:name=".ActivityDetallePubl"
             android:label="@string/title_detallevista" >
         </activity>
     </application>

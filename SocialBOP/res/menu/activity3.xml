@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_nuevo_usuario"
         android:orderInCategory="100"
-        android:showAsAction="always|withText"
+        android:showAsAction="ifRoom"
         android:title="Crear Usuario"
         android:icon="@drawable/ic_guardar"/>
 
