@@ -33,13 +33,14 @@ public final class R {
         public static final int ic_add_user=0x7f020004;
         public static final int ic_agregar=0x7f020005;
         public static final int ic_agregar_usuario=0x7f020006;
-        public static final int ic_buscar=0x7f020007;
-        public static final int ic_enviar=0x7f020008;
-        public static final int ic_guardar=0x7f020009;
-        public static final int ic_iniciar_sesion=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int ic_publicar=0x7f02000c;
-        public static final int ic_siguiente=0x7f02000d;
+        public static final int ic_borrar=0x7f020007;
+        public static final int ic_buscar=0x7f020008;
+        public static final int ic_enviar=0x7f020009;
+        public static final int ic_guardar=0x7f02000a;
+        public static final int ic_iniciar_sesion=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int ic_publicar=0x7f02000d;
+        public static final int ic_siguiente=0x7f02000e;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f090000;
@@ -51,7 +52,7 @@ public final class R {
         public static final int action_guardar=0x7f090037;
         public static final int action_nuevo=0x7f090034;
         public static final int action_nuevo_usuario=0x7f090032;
-        public static final int button1=0x7f09000f;
+        public static final int borrarFotoNP8=0x7f09000f;
         public static final int button2=0x7f090010;
         public static final int cargarFotoNP8=0x7f09001a;
         public static final int datePicker1=0x7f09001e;

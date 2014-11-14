@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-//Comentario
+//Comentario 2
 public class ActivityRecPass extends Activity {
 
 	@Override

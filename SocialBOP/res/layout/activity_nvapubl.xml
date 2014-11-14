@@ -82,21 +82,37 @@
         android:text="Foto:"
         android:textColor="#FFFFFF" />
 
-    <ImageButton
-        android:id="@+id/cargarFotoNP8"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="loadPhoto"
-        android:src="@drawable/ic_add"
-        android:background="#003355"
-        android:textColor="#FFFFFF" />
+        android:gravity="center" >
+
+        <ImageButton
+            android:id="@+id/cargarFotoNP8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#003355"
+            android:onClick="loadPhoto"
+            android:src="@drawable/ic_add"
+            android:textColor="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/borrarFotoNP8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#003355"
+            android:src="@drawable/ic_borrar"
+            android:onClick="cleanPhoto"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/ivNP8Foto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_agregar"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginTop="20dp"
         android:visibility="gone" />
 
     <TextView

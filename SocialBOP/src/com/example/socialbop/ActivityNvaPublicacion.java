@@ -17,7 +17,6 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -45,6 +45,8 @@ public class ActivityNvaPublicacion extends Activity {
 	EditText etA1Nombrepet,etA1recompensa,etA3detalles;
 	Spinner spinner1,spinner2;
 	DatePicker datePicker1;
+	ImageButton button;
+	ImageButton button2;
 	private ImageView iv1;
 	
 	
@@ -63,7 +65,9 @@ public class ActivityNvaPublicacion extends Activity {
 		rbA3M = (RadioButton) findViewById(R.id.rbA3M);
 		datePicker1 = (DatePicker) findViewById(R.id.datePicker1);
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
-		spinner2 = (Spinner) findViewById(R.id.spinner2);	
+		spinner2 = (Spinner) findViewById(R.id.spinner2);
+		button = (ImageButton) findViewById(R.id.cargarFotoNP8);
+		button2 = (ImageButton) findViewById(R.id.borrarFotoNP8);
 	}
 
 	@Override
@@ -183,12 +187,18 @@ public class ActivityNvaPublicacion extends Activity {
 		}
 		
 		if(iv1.getDrawable().getConstantState().equals
-            (getResources().getDrawable(R.drawable.ic_agregar).getConstantState())){
+            (getResources().getDrawable(R.drawable.ic_launcher).getConstantState())){
 			Toast.makeText(this, "Debe agregar una imagen", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		
 		return true;
+	}
+	
+	public void cleanPhoto(View v){
+		iv1.setImageResource(R.drawable.ic_launcher);
+		iv1.setVisibility(View.GONE);
+		button2.setVisibility(View.GONE);
+		button.setVisibility(View.VISIBLE);
 	}
 	
 	public void loadPhoto(View v){
@@ -242,7 +252,12 @@ public class ActivityNvaPublicacion extends Activity {
 					e.printStackTrace();
 				}
             }
-        }
+            if(!iv1.getDrawable().getConstantState().equals
+                (getResources().getDrawable(R.drawable.ic_launcher).getConstantState())){
+            	button.setVisibility(View.GONE);
+            	button2.setVisibility(View.VISIBLE);
+        	}
+        }       
     }
 	
     public String getPath(Uri uri) {
