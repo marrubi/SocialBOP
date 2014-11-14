@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#88C1E4" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" >
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp" 
+            android:padding="5dp">
+           
+            <ImageView
+                android:id="@+id/ivDPI"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/dog" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvDPINombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="Nombre"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIRecompensa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="4dp"
+                android:text="Recompensa"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIRaza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="4dp"
+                android:text="Raza"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDPINombre"
+                android:layout_margin="4dp"
+                android:text="Genero"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIComuna"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDPIRaza"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="4dp"
+                android:text="Comuna"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tvDPIRecompensa"
+                android:layout_margin="4dp"
+                android:text="Fecha"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
