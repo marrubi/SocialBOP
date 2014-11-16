@@ -2,18 +2,30 @@ package com.example.socialbop;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+
 
 
 //Comentario 2
 public class ActivityRecPass extends Activity {
 
-	@Override
+	
+	EditText email;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recpass);
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		    StrictMode.setThreadPolicy(policy);
+		}
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		
 	}
 
 	@Override
@@ -34,7 +46,17 @@ public class ActivityRecPass extends Activity {
 				finish();
 				break;
 			case R.id.action_enviar:
-				finish();
+				try{
+					email = (EditText)findViewById(R.id.etA1Usuario);
+					GmailSender sender = new GmailSender("soportebop@gmail.com", "movilutembop");
+					sender.sendMail("Recuperación de password", 
+									"Su password es:", 
+									"soportebop@gmail.com", 
+									email.getText().toString());
+				}catch(Exception e){
+					Log.e("SendMail", e.getMessage(), e); 
+				}
+				
 				break;
 			default:
 				break;
