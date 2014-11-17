@@ -237,13 +237,13 @@ public class ActivityNvaPublicacion extends Activity {
                 // Check for the freshest data.
                 getContentResolver().takePersistableUriPermission(uri, takeFlags);
             	try {
-					Bitmap  mBitmap = Media.getBitmap(this.getContentResolver(), uri);
+					Bitmap bitmap = Media.getBitmap(this.getContentResolver(), uri);
 					ByteArrayOutputStream stream = new ByteArrayOutputStream();
-					mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+					bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 					byte[] byteArray = stream.toByteArray();
-					mBitmap = decodeSampledBitmapFromResource(getResources(), byteArray, 150, 150);
+					bitmap = decodeSampledBitmapFromResource(getResources(), byteArray, 150, 150);
 					iv1.setVisibility(View.VISIBLE);
-	                iv1.setImageBitmap(mBitmap);
+	                iv1.setImageBitmap(bitmap);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

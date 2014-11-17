@@ -42,6 +42,10 @@ public class ActivityLogin extends Activity {
 		SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
 		String name = prefs.getString("name", "");
 		String pass = prefs.getString("pass", "");
+		if(helper.Login(name, pass)){
+			Intent intent = new Intent(this, ActivityPublicaciones.class);
+			startActivity(intent);
+		}
 	}
 
 	@Override
