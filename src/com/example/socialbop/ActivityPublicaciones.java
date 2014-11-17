@@ -2,7 +2,6 @@ package com.example.socialbop;
 
 import java.util.List;
 
-import com.example.socialbop.db.DBOpenHelper;
 import com.example.socialbop.db.DataSource;
 import com.example.socialbop.R;
 import com.example.socialbop.lib.PublicacionAdapter;
@@ -90,7 +89,7 @@ public class ActivityPublicaciones extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		
-		Publicacion publicacion = publicaciones.get(position);
+		Publicacion publicacion = publicaciones.get((l.getCount()-1) - position);
 		
 		Intent intent = new Intent(this, ActivityDetallePubl.class);
 		

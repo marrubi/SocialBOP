@@ -7,8 +7,7 @@
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stackFromBottom="true"
-		android:transcriptMode="normal" >
+        android:divider="@android:color/transparent" >
     </ListView>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.socialbop.lib;
 
 import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.socialbop.Publicacion;
 import com.example.socialbop.R;
 
@@ -28,7 +31,8 @@ public class PublicacionAdapter extends ArrayAdapter<Publicacion> {
 	@Override
 	public View getView(int position, View converView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		Publicacion publ = objects.get(position);
+		
+		Publicacion publ = objects.get((getCount()-1)-position);
 		
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.detallepublicacion_item, null);
@@ -39,11 +43,8 @@ public class PublicacionAdapter extends ArrayAdapter<Publicacion> {
 		TextView tvRaza = (TextView) view.findViewById(R.id.tvDPIRaza);
 		tvRaza.setText(publ.getRaza());
 		
-		//TextView tvUsuario = (TextView) view.findViewById(R.id.tvDPIUsuario);
-		//tvUsuario.setText("usuario");
-		
 		TextView tvRecompensa = (TextView) view.findViewById(R.id.tvDPIRecompensa);
-		tvRecompensa.setText(publ.getRecompensa());
+		tvRecompensa.setText("$"+publ.getRecompensa());
 		
 		TextView tvComuna = (TextView) view.findViewById(R.id.tvDPIComuna);
 		tvComuna.setText(publ.getLugar());

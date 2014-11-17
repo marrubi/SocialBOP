@@ -17,11 +17,13 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -223,13 +225,20 @@ public class ActivityNvaPublicacion extends Activity {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == SELECT_PICTURE) {
+            	DisplayMetrics metrics = new DisplayMetrics();
+            	getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            	
                 Uri selectedImageUri = data.getData();
                 selectedImagePath = getPath(selectedImageUri);
                 Bitmap bitmap = decodeSampledBitmapFromResource(getResources(),selectedImagePath, 150, 150);
+                
                 iv1.setVisibility(View.VISIBLE);
                 iv1.setImageBitmap(bitmap);
             }
             if(requestCode == GALLERY_KITKAT_INTENT_CALLED){
+            	DisplayMetrics metrics = new DisplayMetrics();
+            	getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            	
             	Uri uri = data.getData();
                 final int takeFlags = data.getFlags()
                         & (Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -242,7 +251,7 @@ public class ActivityNvaPublicacion extends Activity {
 					bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 					byte[] byteArray = stream.toByteArray();
 					bitmap = decodeSampledBitmapFromResource(getResources(), byteArray, 150, 150);
-					iv1.setVisibility(View.VISIBLE);
+	                iv1.setVisibility(View.VISIBLE);
 	                iv1.setImageBitmap(bitmap);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block

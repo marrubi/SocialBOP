@@ -4,9 +4,12 @@ import com.example.socialbop.db.DBOpenHelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,29 +57,50 @@ public class ActivityDetallePubl extends Activity {
 		Uri uri = Uri.parse("android.resource://com.example.socialbop/drawable/ic_launcher");
 		
 		TextView tvNombre = (TextView) findViewById(R.id.textView1);
-		tvNombre.setText("Nombre Mascota: " + nombre);
+		tvNombre.setText(nombre);
 		
 		TextView tvRaza = (TextView) findViewById(R.id.textView2);
-		tvRaza.setText("Raza: " + raza);
+		tvRaza.setText(raza);
 		
 		TextView tvGenero = (TextView) findViewById(R.id.textView3);
-		tvGenero.setText("Género: " + genero);
+		tvGenero.setText(genero);
 		
 		TextView tvLugar = (TextView) findViewById(R.id.textView4);
-		tvLugar.setText("Lugar de Extravío: " + lugar);
+		tvLugar.setText(lugar);
 		
 		TextView tvFecha = (TextView) findViewById(R.id.textView5);
-		tvFecha.setText("Fecha de Extravío: " + fecha);
+		tvFecha.setText(fecha);
 		
 		TextView tvRecompensa = (TextView) findViewById(R.id.textView6);
-		tvRecompensa.setText("Recompensa: " + recompensa);
+		tvRecompensa.setText(recompensa);
 		
 		TextView tvDetalles = (TextView) findViewById(R.id.textView7);
-		tvDetalles.setText("Detalles: " + detalles);	
+		tvDetalles.setText(detalles);	
 		
 		ImageView imageview = (ImageView) findViewById(R.id.ivDV1);
-		imageview.setImageBitmap(BitmapFactory.decodeByteArray(fotopubl, 0,
-                fotopubl.length));
+		DisplayMetrics metrics = new DisplayMetrics(); 
+
+        getWindowManager().getDefaultDisplay().getMetrics(metrics); 
+
+
+        
+        Bitmap ibitmap = BitmapFactory.decodeByteArray(fotopubl, 0, fotopubl.length);
+
+        float scaleWidth = metrics.scaledDensity;
+        float scaleHeight = metrics.scaledDensity;
+        
+        int width = ibitmap.getWidth();
+        int height = ibitmap.getHeight();
+        
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        // resize the bit map
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // recreate the new Bitmap
+        Bitmap resizedBitmap = Bitmap.createBitmap(ibitmap, 0, 0, width, height, matrix, true);
+        
+		imageview.setImageBitmap(resizedBitmap);
 		
 		helper = new DBOpenHelper(this);
 	}
