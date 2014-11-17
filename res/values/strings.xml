@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Social BOP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity2">Opciones</string>
+    <string name="title_activity_activity4">Buscar Perro</string>
+    <string name="title_activity_activity8">Nueva Publicación</string>
+    <string name="title_activity_activity9">Nueva Publicación</string>
+ 	<string name="title_detallevista">Detalles</string>
+    <string-array name="razas">
+        <item>Sin raza o Mestizo</item>
+        <item>Terrier Escocés</item>
+        <item>Yorkshire</item>
+        <item>Chow Chow</item>
+        <item>San Bernardo</item>
+        <item>Doberman</item>
+        <item>Rottweiler</item>
+        <item>Pekinés</item>
+        <item>Pit Bull</item>
+        <item>Galgo</item>
+        <item>Bull Terrier</item>
+        <item>Dálmata</item>
+        <item>Chihuahua</item>
+        <item>Pastor Alemán</item>
+        <item>Beagle</item>
+        <item>Sabueso</item>
+        <item>Akita</item>
+        <item>Golden Retriever</item>
+        <item>Poodle</item>
+        <item>Siberiano</item>
+    </string-array>
+    <string-array name="comunas">
+        <item>Cerrillos</item>
+        <item>Cerro Navia</item>
+        <item>Conchalí</item>
+        <item>El Bosque</item>
+        <item>Estación Central</item>
+        <item>Huechuraba</item>
+        <item>Independencia</item>
+        <item>La Cisterna</item>
+        <item>La Florida</item>
+        <item>La Granja</item>
+        <item>La Pintana</item>
+        <item>La Reina</item>
+        <item>Las Condes</item>
+        <item>Lo Barnechea</item>
+        <item>Lo Espejo</item>
+        <item>Lo Prado</item>
+        <item>Macul</item>
+        <item>Maipú</item>
+        <item>Ñuñoa</item>
+        <item>Pedro Aguirre Cerda</item>
+        <item>Peñalolén</item>
+        <item>Providencia</item>
+        <item>Pudahuel</item>
+        <item>Quilicura</item>
+        <item>Quinta Normal</item>
+        <item>Recoleta</item>
+        <item>Renca</item>
+        <item>San Joaquín</item>
+        <item>San Miguel</item>
+        <item>San Ramón</item>
+        <item>Santiago</item>
+        <item>Vitacura</item>
+    </string-array>
+
+    <string name="title_activity_activity7">Buscar Perro</string>
+    <string name="title_activity_activity5">Publicaciones</string>
+    <string name="title_activity_activity3">Nuevo Usuario</string>
+    <string name="title_activity_activity6">Recuperar Contraseña</string>
+
+</resources>
