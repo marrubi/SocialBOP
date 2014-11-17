@@ -2,7 +2,6 @@ package com.example.socialbop;
 
 import java.util.List;
 
-import com.example.socialbop.db.DBOpenHelper;
 import com.example.socialbop.db.DataSource;
 import com.example.socialbop.R;
 import com.example.socialbop.lib.PublicacionAdapter;
