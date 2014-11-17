@@ -7,17 +7,18 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="5dp"
+        android:background="#77B1D4" >
 
         <RelativeLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp" 
-            android:padding="5dp">
+            android:layout_width="75dp"
+            android:layout_height="75dp" 
+            android:padding="2dp">
            
             <ImageView
                 android:id="@+id/ivDPI"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:src="@drawable/dog" />
 
         </RelativeLayout>
@@ -32,7 +33,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="Nombre"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvDPIRecompensa"
@@ -42,36 +44,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_margin="4dp"
                 android:text="Recompensa"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/tvDPIRaza"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="4dp"
-                android:text="Raza"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/tvDPIGenero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDPINombre"
-                android:layout_margin="4dp"
-                android:text="Genero"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/tvDPIComuna"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDPIRaza"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="4dp"
-                android:text="Comuna"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvDPIFecha"
@@ -81,8 +55,31 @@
                 android:layout_below="@+id/tvDPIRecompensa"
                 android:layout_margin="4dp"
                 android:text="Fecha"
+                android:textColor="#FFFFFF"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tvDPIRaza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvDPINombre"
+                android:layout_below="@+id/tvDPINombre"
+                android:text="Raza"
                 android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvDPIComuna"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvDPIRaza"
+                android:layout_margin="4dp"
+                android:text="Comuna"
+                android:textColor="#FFFFFF"
+                android:textStyle="italic" />
+
         </RelativeLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
