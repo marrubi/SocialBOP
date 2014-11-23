@@ -82,6 +82,16 @@ public class ActivityPublicaciones extends ListActivity {
 				startActivity(intent1);
 				finish();
 				break;
+			case R.id.action_mis_publicaciones:
+				SharedPreferences settings2 = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+				String usuariopubli = settings2.getString("name", "");
+				String query = "SELECT * FROM publicacion WHERE usuariopubl=? AND estadopubl=?";
+				String busqueda1 = usuariopubli;
+				String busqueda2 = "up";
+				datasource.openDB();
+				publicaciones = datasource.obtenerPublicacionesdebuscar2(query,busqueda1,busqueda2);
+				datasource.closeDB();
+				actualizarList();
 			default:
 				break;
 		}
