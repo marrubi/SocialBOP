@@ -7,9 +7,15 @@ public class Usuario {
 	private int genero;
 	private String telefono;
 	private String correo;
-	private String user;
-	private String pass;
 	private int edad;
+	private int id_login_fk;
+	
+	public int getId_login_fk() {
+		return id_login_fk;
+	}
+	public void setId_login_fk(int id_login_fk) {
+		this.id_login_fk = id_login_fk;
+	}
 	
 	public int getEdad() {
 		return edad;
@@ -52,17 +58,5 @@ public class Usuario {
 	}
 	public void setCorreo(String correo) {
 		this.correo = correo;
-	}
-	public String getUser() {
-		return user;
-	}
-	public void setUser(String user) {
-		this.user = user;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
 	}
 }

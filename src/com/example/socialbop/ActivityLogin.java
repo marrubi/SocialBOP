@@ -34,7 +34,6 @@ public class ActivityLogin extends Activity {
 		setContentView(R.layout.activity_login);
 		
 		helper = new DBOpenHelper(this);
-		helper.nuevologin("nombres1","apellidos1",1,"telefono1","correo1","user", "pass");
 		
 		usuario = (EditText) findViewById(R.id.etA1Usuario);
 		contrasena = (EditText) findViewById(R.id.etA1Contrasena);

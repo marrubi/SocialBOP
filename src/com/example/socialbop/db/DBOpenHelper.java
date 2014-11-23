@@ -24,35 +24,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean nuevologin(String nombres, String apellidos, int genero, String telefono, String correo, String user, String pass){
-		SQLiteDatabase db = this.getWritableDatabase();
-		ContentValues contentValues = new ContentValues();
-		
-		contentValues.put("nombres", nombres);
-		contentValues.put("apellidos", apellidos);
-		contentValues.put("genero", genero);
-		contentValues.put("telefono", telefono);
-		contentValues.put("correo", correo);
-
-		db.insert("usuario", null, contentValues);
-		return true;
-		   
-	}
-	
-	public long getIDLogin(Login log){
-		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor mCursor = db.rawQuery("SELECT id_login FROM login WHERE usuario=? AND contrasena=?", new String[]{log.getUsuario(),log.getContrasena()});
-		return mCursor.getColumnIndex("id_login");
-	}
-	//Esta es la funcion que retorna la contraseña, pero el metodo
-	//getColumnIndex retorna el indice del campo contrasena y no la contraseña que quiero
-	public long getPassMail(String mail){
-		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor mCursor = db.rawQuery("SELECT usuario,contrasena FROM login,usuario WHERE usuario.id_login_fk = login.id_login and correo = ?", new String[]{mail});
-		return mCursor.getColumnIndex("contrasena");
-	}
-	
-	
 	public void insertarUsuario(Usuario usuario, long id){
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
@@ -155,11 +126,24 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS login");
 	    onCreate(db);
 	}
-
+	
+	public int getIDLogin(String username, String password) throws SQLException{
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor mCursor = db.rawQuery("SELECT * FROM login WHERE usuario=? AND contrasena=?", new String[]{username,password});
+		if (mCursor != null) {
+			if(mCursor.getCount() == 1)
+			{
+				while(mCursor.moveToNext()){
+					return mCursor.getInt(mCursor.getColumnIndex("id_login"));
+				}
+			}
+		}
+		return 0;
+	}
 	
 	public boolean Login(String username, String password) throws SQLException{
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor mCursor = db.rawQuery("SELECT * FROM login WHERE usuario=? AND contrasena=?", new String[]{username,password});
+		Cursor mCursor = db.rawQuery("SELECT * FROM login WHERE login.usuario=? AND login.contrasena=?", new String[]{username,password});
 		if (mCursor != null) {
 			if(mCursor.getCount() > 0)
 			{
@@ -169,4 +153,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		return false;
 	}
 	
+	
+	public String getPassMail(String mail) throws SQLException{
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor mCursor = db.rawQuery("SELECT usuario,contrasena FROM login,usuario WHERE usuario.id_login_fk = login.id_login and correo =?", new String[]{mail});
+		if (mCursor != null) {
+			if(mCursor.getCount() == 1)
+			{
+				while(mCursor.moveToNext()){
+					return mCursor.getString(mCursor.getColumnIndex("contrasena"));
+				}
+			}
+		}
+		return null;
+	}
 }

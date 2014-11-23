@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.socialbop.Login;
 import com.example.socialbop.Publicacion;
 
 public class DataSource {

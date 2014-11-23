@@ -1,10 +1,10 @@
 package com.example.socialbop;
 
 import com.example.socialbop.db.DBOpenHelper;
+import com.example.socialbop.db.DataSource;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class ActivityNvoUsuario extends Activity {
 	
 	DBOpenHelper helper;
+	DataSource ds;
 	EditText etNombres, etApellidos, etEdad, etTelefono, etCorreo, etUsuario, etContrasena, etConfContrasena;
 	RadioButton rbF, rbM;
 	String nombres, apellidos, telefono, correo, usuario, contraseña, confcontraseña, edadstring;
@@ -23,6 +24,7 @@ public class ActivityNvoUsuario extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		ds = new DataSource(this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nvousuario);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -68,12 +70,19 @@ public class ActivityNvoUsuario extends Activity {
 					us.setCorreo(correo);
 					log.setUsuario(usuario);
 					log.setContrasena(contraseña);
-					helper.insertarLogin(log);
-					long id_login = helper.getIDLogin(log);
-					helper.insertarUsuario(us, id_login);
 					
-					Toast.makeText(this, "Usuario Agregado", Toast.LENGTH_SHORT).show();
-					finish();	
+					helper.insertarLogin(log);
+					
+					int idlogin = helper.getIDLogin(log.getUsuario(), log.getContrasena());
+					
+					if(idlogin != 0){
+						helper.insertarUsuario(us, idlogin);
+						Toast.makeText(this, "Usuario Agregado", Toast.LENGTH_SHORT).show();
+						finish();
+					}
+					else{
+						Toast.makeText(this, "No se puede ingresar el usuario a la bd", Toast.LENGTH_SHORT).show();
+					}
 				}
 				
 				break;

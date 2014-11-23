@@ -52,10 +52,10 @@ public class ActivityRecPass extends Activity {
 					//su password es:1
 					email = (EditText)findViewById(R.id.etA1Usuario);
 					correo = new DBOpenHelper(this);
-					long c = correo.getPassMail(email.getText().toString());
+					String c = correo.getPassMail(email.getText().toString());
 					GmailSender sender = new GmailSender("soportebop@gmail.com", "movilutembop");
 					sender.sendMail("Recuperación de password", 
-									"Su password es:"+c, 
+									"Su password es: "+c + "\n\nAtentamente.\n\nEquipo de Soporte de SocialBOP", 
 									"soportebop@gmail.com", 
 									email.getText().toString());
 				}catch(Exception e){
