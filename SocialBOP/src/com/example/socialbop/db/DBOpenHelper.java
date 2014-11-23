@@ -44,6 +44,13 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		Cursor mCursor = db.rawQuery("SELECT id_login FROM login WHERE usuario=? AND contrasena=?", new String[]{log.getUsuario(),log.getContrasena()});
 		return mCursor.getColumnIndex("id_login");
 	}
+	//Esta es la funcion que retorna la contraseña, pero el metodo
+	//getColumnIndex retorna el indice del campo contrasena y no la contraseña que quiero
+	public long getPassMail(String mail){
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor mCursor = db.rawQuery("SELECT usuario,contrasena FROM login,usuario WHERE usuario.id_login_fk = login.id_login and correo = ?", new String[]{mail});
+		return mCursor.getColumnIndex("contrasena");
+	}
 	
 	
 	

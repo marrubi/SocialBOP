@@ -1,5 +1,7 @@
 package com.example.socialbop;
 
+import com.example.socialbop.db.DBOpenHelper;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -16,6 +18,7 @@ public class ActivityRecPass extends Activity {
 
 	
 	EditText email;
+	DBOpenHelper correo;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recpass);
@@ -47,10 +50,14 @@ public class ActivityRecPass extends Activity {
 				break;
 			case R.id.action_enviar:
 				try{
+					//aqui retorno lo de getPassMail en Long c pero me retorno un 1, es decir al email que puse me mando
+					//su password es:1
 					email = (EditText)findViewById(R.id.etA1Usuario);
+					correo = new DBOpenHelper(this);
+					long c = correo.getPassMail(email.getText().toString());
 					GmailSender sender = new GmailSender("soportebop@gmail.com", "movilutembop");
 					sender.sendMail("Recuperación de password", 
-									"Su password es:", 
+									"Su password es:"+c, 
 									"soportebop@gmail.com", 
 									email.getText().toString());
 				}catch(Exception e){
