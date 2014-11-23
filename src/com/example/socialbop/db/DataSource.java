@@ -80,4 +80,29 @@ public class DataSource {
 		}
 		return publicaciones;
 	}
+	
+	
+	public List<Publicacion> obtenerPublicacionesdebuscar2(String query, String busqueda1, String busqueda2){
+		List<Publicacion> publicaciones = new ArrayList<Publicacion>();
+		Cursor cursor = database.rawQuery(query, new String[]{busqueda1,busqueda2});
+		if (cursor.getCount() > 0){		
+			while(cursor.moveToNext()){
+				Publicacion publ = new Publicacion();
+				publ.setId(cursor.getLong(cursor.getColumnIndex("id_publicacion")));
+				publ.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+				publ.setRaza(cursor.getString(cursor.getColumnIndex("raza")));
+				publ.setGenero(cursor.getString(cursor.getColumnIndex("genero")));
+				publ.setLugar(cursor.getString(cursor.getColumnIndex("lugar")));
+				publ.setFecha(cursor.getString(cursor.getColumnIndex("fecha")));
+				publ.setRecompensa(cursor.getString(cursor.getColumnIndex("recompensa")));
+				publ.setDetalles(cursor.getString(cursor.getColumnIndex("detalles")));
+				publ.setUsuariopubl(cursor.getString(cursor.getColumnIndex("usuariopubl")));
+				publ.setEstadopubl(cursor.getString(cursor.getColumnIndex("estadopubl")));
+				publ.setFoto(cursor.getBlob(cursor.getColumnIndex("foto")));
+				publicaciones.add(publ);				
+			}
+		}
+		return publicaciones;
+	}
+	
 }

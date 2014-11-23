@@ -131,16 +131,18 @@
 	        android:src="@drawable/ic_launcher" />
 	
 	    <Button
-	        android:id="@+id/borrarFotoNP8"
+	        android:id="@+id/buttoncontactar"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
 	        android:background="#003355"
+	        android:onClick="contactarPubl"
 	        android:text="Contactar Dueño"
+	        android:visibility="invisible"
 	        android:textColor="#FFFFFF" />
 	
 	    <Button
-	        android:id="@+id/button2"
+	        android:id="@+id/buttoncerrar"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
@@ -148,6 +150,7 @@
 	        android:background="#003355"
 	        android:onClick="cerrarPubl"
 	        android:text="Cerrar Publicación"
+	        android:visibility="invisible"
 	        android:textColor="#FFFFFF" />
 	
 	</LinearLayout>

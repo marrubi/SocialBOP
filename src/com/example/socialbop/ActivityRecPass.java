@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 
 
-
-//Comentario 2
 public class ActivityRecPass extends Activity {
 
 	

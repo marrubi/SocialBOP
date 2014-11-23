@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ActivityPublicaciones extends ListActivity {
 
@@ -62,7 +63,9 @@ public class ActivityPublicaciones extends ListActivity {
 				Intent intent3 = getIntent();
 				String nombreuser = intent3.getStringExtra(ActivityLogin.COPIAR_TEXTO);
 				Intent intent = new Intent(this, ActivityNvaPublicacion.class);
-				intent.putExtra(COPIAR_TEXTO, nombreuser);
+				SharedPreferences settings1 = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+				String name = settings1.getString("name", "");
+				intent.putExtra(COPIAR_TEXTO, name);
 				startActivityForResult(intent, AGREGAR_PUBLICACION_ACTIVITY);
 				break;
 			case R.id.action_buscar:
@@ -125,14 +128,43 @@ public class ActivityPublicaciones extends ListActivity {
 			if(data.getExtras().containsKey("raza")){
 				razapet = data.getStringExtra("raza").toString();
 			}
-			String query = "SELECT * FROM publicacion WHERE raza =? AND genero=?";
-			String busqueda1 = razapet;
-			String busqueda2 = generopet;
-			String busqueda3 = "up";
-			datasource.openDB();
-			datasource.obtenerPublicacionesdebuscar(query,busqueda1,busqueda2,busqueda3);
-			datasource.closeDB();
-			actualizarList();
+			
+			
+			if(generopet.equals("cualquiera") && razapet.equals("Cualquier Raza")){
+				datasource.openDB();
+				publicaciones = datasource.obtenerPublicaciones();
+				datasource.closeDB();
+				actualizarList();
+			}
+			else if(generopet.equals("cualquiera")){
+				String query = "SELECT * FROM publicacion WHERE raza =? AND estadopubl=?";
+				String busqueda1 = razapet;
+				String busqueda2 = "up";
+				datasource.openDB();
+				publicaciones = datasource.obtenerPublicacionesdebuscar2(query,busqueda1,busqueda2);
+				datasource.closeDB();
+				actualizarList();
+			}
+			else if(razapet.equals("Cualquier Raza")){
+				String query = "SELECT * FROM publicacion WHERE genero =? AND estadopubl=?";
+				String busqueda1 = generopet;
+				String busqueda2 = "up";
+				datasource.openDB();
+				publicaciones = datasource.obtenerPublicacionesdebuscar2(query,busqueda1,busqueda2);
+				datasource.closeDB();
+				actualizarList();
+			}
+			else{
+				String query = "SELECT * FROM publicacion WHERE raza =? AND genero=? AND estadopubl=?";
+				String busqueda1 = razapet;
+				String busqueda2 = generopet;
+				String busqueda3 = "up";
+				datasource.openDB();
+				publicaciones = datasource.obtenerPublicacionesdebuscar(query,busqueda1,busqueda2,busqueda3);
+				datasource.closeDB();
+				actualizarList();
+			}
+			
 		}
 		if (requestCode == CERRAR_PUBLICACION && resultCode == 3){ 
 			datasource.openDB();

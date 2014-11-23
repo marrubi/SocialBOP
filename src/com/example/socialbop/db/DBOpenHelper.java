@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class DBOpenHelper extends SQLiteOpenHelper {
 	
 	public static final String DB_NOMBRE = "BOP.db";
-	public static final int DB_VERSION = 17;
+	public static final int DB_VERSION = 19;
 	public static final String DB_TABLA = "usuario";
 	public static final String DB_TABLA2 = "publicacion";
 	
@@ -44,7 +44,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		Cursor mCursor = db.rawQuery("SELECT id_login FROM login WHERE usuario=? AND contrasena=?", new String[]{log.getUsuario(),log.getContrasena()});
 		return mCursor.getColumnIndex("id_login");
 	}
-	
 	
 	
 	public void insertarUsuario(Usuario usuario, long id){

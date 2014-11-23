@@ -31,6 +31,29 @@
         <item>Poodle</item>
         <item>Siberiano</item>
     </string-array>
+    <string-array name="razasbuscar">
+        <item>Cualquier Raza</item>
+        <item>Sin raza o Mestizo</item>
+        <item>Terrier Escocés</item>
+        <item>Yorkshire</item>
+        <item>Chow Chow</item>
+        <item>San Bernardo</item>
+        <item>Doberman</item>
+        <item>Rottweiler</item>
+        <item>Pekinés</item>
+        <item>Pit Bull</item>
+        <item>Galgo</item>
+        <item>Bull Terrier</item>
+        <item>Dálmata</item>
+        <item>Chihuahua</item>
+        <item>Pastor Alemán</item>
+        <item>Beagle</item>
+        <item>Sabueso</item>
+        <item>Akita</item>
+        <item>Golden Retriever</item>
+        <item>Poodle</item>
+        <item>Siberiano</item>
+    </string-array>
     <string-array name="comunas">
         <item>Cerrillos</item>
         <item>Cerro Navia</item>

@@ -3,7 +3,9 @@ package com.example.socialbop;
 import com.example.socialbop.db.DBOpenHelper;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +42,7 @@ public class ActivityDetallePubl extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalle);
+
 		
 		Intent intent = getIntent();
 		id_publ = intent.getLongExtra("id_publ", 10);
@@ -103,6 +107,20 @@ public class ActivityDetallePubl extends Activity {
 		imageview.setImageBitmap(resizedBitmap);
 		
 		helper = new DBOpenHelper(this);
+				
+		SharedPreferences settings1 = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+		String userlogeado = settings1.getString("name", "");
+		
+		Button buttCerrar = (Button) findViewById(R.id.buttoncerrar);
+		Button buttContactar = (Button) findViewById(R.id.buttoncontactar);
+			
+		if(userpubl.equals(userlogeado)){
+			buttCerrar.setVisibility(View.VISIBLE);
+		}
+		else{
+			buttContactar.setVisibility(View.VISIBLE);
+		}
+		
 	}
 	
 	@Override
@@ -145,6 +163,14 @@ public class ActivityDetallePubl extends Activity {
 		setResult(3);
 		finish();
 	}
+	
+	
+	public void contactarPubl(View view){
+		Toast.makeText(this,"Pronto...", Toast.LENGTH_SHORT).show();
+		finish();	
+	}
+	
+	
 }
 
 

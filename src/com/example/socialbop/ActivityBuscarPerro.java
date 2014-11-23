@@ -55,6 +55,10 @@ public class ActivityBuscarPerro extends Activity {
 				generopet = "Hembra";
 			}
 			break;
+			default:{
+				generopet = "cualquiera";
+			}
+			break;
 			}
 			
 			razapet = String.valueOf(spinner3.getSelectedItem());
