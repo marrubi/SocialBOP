@@ -65,7 +65,7 @@ public class ActivityNvoUsuario extends Activity {
 				if(validarCampos()){
 					helper = new DBOpenHelper(this);
 					Usuario us = new Usuario();
-					Login log = new Login();
+					Login log = new Login();		
 					us.setNombres(nombres);
 					us.setApellidos(apellidos);
 					us.setGenero(genero);
@@ -85,7 +85,7 @@ public class ActivityNvoUsuario extends Activity {
 						finish();
 					}
 					else{
-						Toast.makeText(this, "Nombre de usuario o Correo ya registrado", Toast.LENGTH_SHORT).show();
+						Toast.makeText(this, "Nombre de usuario y/o Correo ya registrado", Toast.LENGTH_SHORT).show();
 					}
 				}
 				
@@ -162,6 +162,8 @@ public class ActivityNvoUsuario extends Activity {
 			Toast.makeText(this, "Campos contraseña y confirmación de contraseña deben ser iguales", Toast.LENGTH_SHORT).show();
 			return false;
 		}
+		
+		
 		return true;
 	}
 	

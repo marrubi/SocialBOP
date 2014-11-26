@@ -181,5 +181,4 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		}
 		return null;
 	}
-	
 }

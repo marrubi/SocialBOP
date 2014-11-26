@@ -72,16 +72,6 @@ public class ActivityPublicaciones extends ListActivity {
 				Intent intent2 = new Intent(this, ActivityBuscarPerro.class);
 				startActivityForResult(intent2, BUSCAR_PUBLICACION_ACTIVITY);
 				break;
-			case R.id.action_cerrar_sesion:
-				SharedPreferences settings = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-				SharedPreferences.Editor editor = settings.edit();
-				editor.putString("name", "");
-				editor.putString("pass", "");
-				editor.commit();
-				Intent intent1 = new Intent(ActivityPublicaciones.this,ActivityLogin.class);
-				startActivity(intent1);
-				finish();
-				break;
 			case R.id.action_mis_publicaciones:
 				SharedPreferences settings2 = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 				String usuariopubli = settings2.getString("name", "");
@@ -92,6 +82,17 @@ public class ActivityPublicaciones extends ListActivity {
 				publicaciones = datasource.obtenerPublicacionesdebuscar2(query,busqueda1,busqueda2);
 				datasource.closeDB();
 				actualizarList();
+				break;
+			case R.id.action_cerrar_sesion:
+				SharedPreferences settings = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+				SharedPreferences.Editor editor = settings.edit();
+				editor.putString("name", "");
+				editor.putString("pass", "");
+				editor.commit();
+				Intent intent1 = new Intent(ActivityPublicaciones.this,ActivityLogin.class);
+				startActivity(intent1);
+				finish();
+				break;
 			default:
 				break;
 		}
