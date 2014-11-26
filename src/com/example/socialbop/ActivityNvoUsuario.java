@@ -85,7 +85,7 @@ public class ActivityNvoUsuario extends Activity {
 						finish();
 					}
 					else{
-						Toast.makeText(this, "No se puede crear nuevo usuario", Toast.LENGTH_SHORT).show();
+						Toast.makeText(this, "Nombre de usuario o Correo ya registrado", Toast.LENGTH_SHORT).show();
 					}
 				}
 				

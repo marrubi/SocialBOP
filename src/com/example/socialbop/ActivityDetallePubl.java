@@ -40,6 +40,7 @@ public class ActivityDetallePubl extends Activity {
 	public String estadopubl;
 	public String estadodown = "down";
 	private byte[] fotopubl;
+	DBOpenHelper correo;
 	
 	
 	@Override
@@ -184,13 +185,13 @@ public class ActivityDetallePubl extends Activity {
 	
 	
 	public void contactarPubl(View view){
-		String mail = "";
+		correo = new DBOpenHelper(this);
+		String mail = correo.getUserMail(userpubl);
 		new AlertDialog.Builder(this)
 	    .setTitle("Contacto")
 	    .setMessage("Mail de Contacto: " + mail)
 	    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	        	
+	        public void onClick(DialogInterface dialog, int which) {
 	    		finish();
 	        }
 	     })

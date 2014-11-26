@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class DBOpenHelper extends SQLiteOpenHelper {
 	
 	public static final String DB_NOMBRE = "BOP.db";
-	public static final int DB_VERSION = 19;
+	public static final int DB_VERSION = 20;
 	public static final String DB_TABLA = "usuario";
 	public static final String DB_TABLA2 = "publicacion";
 	
@@ -96,7 +96,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 				+ "edad INTEGER, "
 				+ "genero TEXT, "
 				+ "telefono TEXT, "
-				+ "correo TEXT, "
+				+ "correo TEXT NOT NULL UNIQUE, "
 				+ "id_login_fk INTEGER)");
 		
 		db.execSQL("CREATE TABLE publicacion("
@@ -115,7 +115,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE login("
 				+ "id_login INTEGER PRIMARY KEY autoincrement, "
 				+ "usuario TEXT NOT NULL UNIQUE, "
-				+ "contrasena TEXT NOT NULL UNIQUE)");
+				+ "contrasena TEXT NOT NULL)");
 	}
 
 	@Override
@@ -162,6 +162,20 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 			{
 				while(mCursor.moveToNext()){
 					return mCursor.getString(mCursor.getColumnIndex("contrasena"));
+				}
+			}
+		}
+		return null;
+	}
+	
+	public String getUserMail(String user) throws SQLException{
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor mCursor = db.rawQuery("SELECT * FROM usuario,login WHERE usuario.id_login_fk = login.id_login and usuario =?", new String[]{user});
+		if (mCursor != null) {
+			if(mCursor.getCount() == 1)
+			{
+				while(mCursor.moveToNext()){
+					return mCursor.getString(mCursor.getColumnIndex("correo"));
 				}
 			}
 		}

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class ActivityRecPass extends Activity {
@@ -58,6 +59,8 @@ public class ActivityRecPass extends Activity {
 									"Su password es: "+c + "\n\nAtentamente.\n\nEquipo de Soporte de SocialBOP", 
 									"soportebop@gmail.com", 
 									email.getText().toString());
+					Toast.makeText(this, "Contraseña enviada", Toast.LENGTH_SHORT).show();
+					finish();
 				}catch(Exception e){
 					Log.e("SendMail", e.getMessage(), e); 
 				}
