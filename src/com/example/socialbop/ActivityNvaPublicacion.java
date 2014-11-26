@@ -185,10 +185,10 @@ public class ActivityNvaPublicacion extends Activity {
 			Toast.makeText(this, "Debe ingresar recompensa (0 si no entrega recompensa)", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		if(detalles.trim().length() == 0){
+		/*if(detalles.trim().length() == 0){
 			Toast.makeText(this, "Debe ingresar detalles", Toast.LENGTH_SHORT).show();
 			return false;
-		}
+		}*/
 		
 		if(iv1.getVisibility()==8){
 			Toast.makeText(this, "Debe agregar una imagen", Toast.LENGTH_SHORT).show();
