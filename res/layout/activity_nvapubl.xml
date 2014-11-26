@@ -149,7 +149,7 @@
         android:id="@+id/tvDPIFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recompensa:"
+        android:text="Recompensa: (en pesos chilenos)"
         android:textColor="#FFFFFF" />
 
     <EditText

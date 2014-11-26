@@ -1,10 +1,14 @@
 package com.example.socialbop;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.example.socialbop.db.DBOpenHelper;
 import com.example.socialbop.db.DataSource;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,11 +81,11 @@ public class ActivityNvoUsuario extends Activity {
 					
 					if(idlogin != 0){
 						helper.insertarUsuario(us, idlogin);
-						Toast.makeText(this, "Usuario Agregado", Toast.LENGTH_SHORT).show();
+						Toast.makeText(this, "Usuario Creado con éxito", Toast.LENGTH_SHORT).show();
 						finish();
 					}
 					else{
-						Toast.makeText(this, "No se puede ingresar el usuario a la bd", Toast.LENGTH_SHORT).show();
+						Toast.makeText(this, "No se puede crear nuevo usuario", Toast.LENGTH_SHORT).show();
 					}
 				}
 				
@@ -102,6 +106,7 @@ public class ActivityNvoUsuario extends Activity {
 		contraseña = etContrasena.getText().toString();
 		confcontraseña = etConfContrasena.getText().toString();
 		
+		
 		if (nombres.length() == 0) {
 			Toast.makeText(this, "Debe ingresar nombre del contacto.", Toast.LENGTH_SHORT).show();
 			return false;
@@ -111,10 +116,7 @@ public class ActivityNvoUsuario extends Activity {
 			Toast.makeText(this, "Debe ingresar apellido", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		if (telefono.length() == 0) {
-			Toast.makeText(this, "Debe ingresar teléfono", Toast.LENGTH_SHORT).show();
-			return false;
-		}
+		
 		if(edadstring.length() == 0){
 			Toast.makeText(this, "Debe ingresar edad", Toast.LENGTH_SHORT).show();
 			return false;
@@ -127,20 +129,25 @@ public class ActivityNvoUsuario extends Activity {
 			}
 		}
 		
+		if (telefono.length() < 7) {
+			Toast.makeText(this, "Debe ingresar teléfono válido", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		
 		if (!rbF.isChecked() && !rbM.isChecked()) {
 			Toast.makeText(this, "Debe seleccionar género", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		if(correo.length() == 0){
-			Toast.makeText(this, "Debe ingresar correo", Toast.LENGTH_SHORT).show();
+		if(esEmailValido(correo)==false){
+			Toast.makeText(this, "Debe ingresar correo válido", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(usuario.length() == 0){
 			Toast.makeText(this, "Debe ingresar usuario", Toast.LENGTH_SHORT).show();
 			return false;
 		}
-		if(contraseña.length() == 0){
-			Toast.makeText(this, "Debe ingresar contraseña", Toast.LENGTH_SHORT).show();
+		if(contraseña.length() < 5){
+			Toast.makeText(this, "Debe ingresar contraseña de al menos 6 caracteres", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(confcontraseña.length() == 0){
@@ -171,5 +178,19 @@ public class ActivityNvoUsuario extends Activity {
 	            }  
 	            break;
 		}
+	}
+	
+	public static boolean esEmailValido(String email) {
+	    boolean esValido = false;
+
+	    String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+	    CharSequence inputStr = email;
+
+	    Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+	    Matcher matcher = pattern.matcher(inputStr);
+	    if (matcher.matches()) {
+	        esValido = true;
+	    }
+	    return esValido;
 	}
 }

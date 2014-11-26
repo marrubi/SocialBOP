@@ -75,7 +75,7 @@ public class ActivityLogin extends Activity {
 				finish();
 			}
 			else{
-				Toast.makeText(getApplicationContext(),"Login Incorrecto", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(),"Usuario y/o Contraseña Incorrecto", Toast.LENGTH_SHORT).show();
 			}
 			return true;
 		case R.id.nuevo_usuario:

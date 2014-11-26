@@ -171,16 +171,18 @@ public class ActivityNvaPublicacion extends Activity {
 		userpublicacion = nombreuser;
 		estadopubl = "up";
 		
-		if (!rbA3F.isChecked() && !rbA3M.isChecked()) {
-			Toast.makeText(this, "Debe seleccionar género", Toast.LENGTH_SHORT).show();
-			return false;
-		}
 		if(nombremascota.trim().length() == 0){
 			Toast.makeText(this, "Debe escribir nombre de mascota", Toast.LENGTH_SHORT).show();
 			return false;
 		}
+		
+		if (!rbA3F.isChecked() && !rbA3M.isChecked()) {
+			Toast.makeText(this, "Debe seleccionar género", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		
 		if(recompensa.trim().length() == 0){
-			Toast.makeText(this, "Debe ingresar recompensa", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Debe ingresar recompensa (0 si no entrega recompensa)", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		if(detalles.trim().length() == 0){
@@ -188,8 +190,7 @@ public class ActivityNvaPublicacion extends Activity {
 			return false;
 		}
 		
-		if(iv1.getDrawable().getConstantState().equals
-            (getResources().getDrawable(R.drawable.ic_launcher).getConstantState())){
+		if(iv1.getVisibility()==8){
 			Toast.makeText(this, "Debe agregar una imagen", Toast.LENGTH_SHORT).show();
 			return false;
 		}
