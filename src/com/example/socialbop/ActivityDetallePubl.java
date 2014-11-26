@@ -3,7 +3,10 @@ package com.example.socialbop;
 import com.example.socialbop.db.DBOpenHelper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -37,6 +40,7 @@ public class ActivityDetallePubl extends Activity {
 	public String estadopubl;
 	public String estadodown = "down";
 	private byte[] fotopubl;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -146,28 +150,53 @@ public class ActivityDetallePubl extends Activity {
 	
 	public void cerrarPubl(View view){
 		
-		Publicacion publ = new Publicacion();
-		publ.setNombre(nombre);
-		publ.setRaza(raza);
-		publ.setGenero(genero);
-		publ.setLugar(lugar);
-		publ.setFecha(fecha);
-		publ.setRecompensa(recompensa);
-		publ.setDetalles(detalles);
-		publ.setUsuariopubl(userpubl);
-		publ.setEstadopubl(estadopubl);
-		publ.setFoto(fotopubl);
+		new AlertDialog.Builder(this)
+	    .setTitle("Cerrar Publicación")
+	    .setMessage("¿Seguro que desea cerrar esta publicación?")
+	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	Publicacion publ = new Publicacion();
+	    		publ.setNombre(nombre);
+	    		publ.setRaza(raza);
+	    		publ.setGenero(genero);
+	    		publ.setLugar(lugar);
+	    		publ.setFecha(fecha);
+	    		publ.setRecompensa(recompensa);
+	    		publ.setDetalles(detalles);
+	    		publ.setUsuariopubl(userpubl);
+	    		publ.setEstadopubl(estadopubl);
+	    		publ.setFoto(fotopubl);
+	    		
+	    		helper.actualizarPublicacion(publ,id_publ);
+	    		
+	    		setResult(3);
+	    		finish();
+	        }
+	     })
+	    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        }
+	     })
+	    .setIcon(android.R.drawable.ic_dialog_alert)
+	    .show();
 		
-		helper.actualizarPublicacion(publ,id_publ);
-		
-		setResult(3);
-		finish();
 	}
 	
 	
 	public void contactarPubl(View view){
-		Toast.makeText(this,"Pronto...", Toast.LENGTH_SHORT).show();
-		finish();	
+		String mail = "";
+		new AlertDialog.Builder(this)
+	    .setTitle("Contacto")
+	    .setMessage("Mail de Contacto: " + mail)
+	    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	
+	    		finish();
+	        }
+	     })
+	    .setIcon(android.R.drawable.ic_dialog_info)
+	    .show();
+		
 	}
 	
 	
